@@ -55,4 +55,4 @@ Diagrama UML: [Atividades-1-e-2/docs/uml.md](Atividades-1-e-2/docs/uml.md)
 Telas (View e Controller) para as classes Model da Atividade 2, seguindo o padrão MVC visto em aula.
 Pasta: [Atividade3](Atividade3)
 
-**Status:** em desenvolvimento.
+**Status:** Finalizado.
