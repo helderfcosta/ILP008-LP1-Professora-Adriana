@@ -5,31 +5,48 @@ public class Temperatura {
         Scanner scanner = new Scanner(System.in);
 
         double[] temp = new double[5];
-        var tempTotal = 0.0;
+        double tempTotal = 0.0;
 
-        System.out.println("Informe a temperatura dos últimos 5 dias!");
+        System.out.println("Informe a temperatura (°C) dos últimos 5 dias de São José dos Campos:");
 
         for (int i = 0; i < temp.length; i++) {
-            System.out.printf("Informe a temperatura do dia %d%n", (i + 1));
-            temp[i] = scanner.nextDouble();
-            tempTotal += (temp[i]);
+            temp[i] = lerDouble(scanner, "Temperatura do dia " + (i + 1) + ": ");
+            tempTotal += temp[i];
         }
 
-        var mediaTemp = tempTotal / 5;
+        double mediaTemp = tempTotal / temp.length;
 
-        System.out.printf("A média da temperatura é: %.2f%n", mediaTemp);
+        System.out.println();
         for (int i = 0; i < temp.length; i++) {
             if (temp[i] < 18) {
-                System.out.println("Temperatura: " + temp[i] + " , Frio!");
+                System.out.printf("Dia %d: %.1f °C - Frio%n", i + 1, temp[i]);
             } else {
-                System.out.println("Temperatura: " + temp[i] + " , Adradável!");
+                System.out.printf("Dia %d: %.1f °C - Temperatura agradável%n", i + 1, temp[i]);
             }
         }
-        if (mediaTemp < 18) {
-            System.out.println("São José dos Campos possui em geral, um clima Frio!");
-        } else {
-            System.out.println("São José dos Campos possui em geral, uma temperatura Agradável!!");
-        }
 
+        System.out.printf("%nMédia: %.2f °C%n", mediaTemp);
+        if (mediaTemp < 18) {
+            System.out.println("Em geral, em São José dos Campos faz frio.");
+        } else {
+            System.out.println("Em geral, em São José dos Campos a temperatura é agradável.");
+        }
+    }
+
+    // Lê um número decimal; aceita vírgula ou ponto e pede de novo se for inválido
+    private double lerDouble(Scanner scanner, String mensagem) {
+        while (true) {
+            System.out.print(mensagem);
+            String texto = scanner.nextLine().trim().replace(',', '.');
+            try {
+                double valor = Double.parseDouble(texto);
+                if (Double.isFinite(valor)) {
+                    return valor;
+                }
+            } catch (NumberFormatException e) {
+                // cai na mensagem abaixo
+            }
+            System.out.println("Valor inválido. Digite um número.");
+        }
     }
 }

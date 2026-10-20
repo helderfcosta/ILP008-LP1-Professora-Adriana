@@ -3,14 +3,15 @@ import java.util.Scanner;
 public class SistemaLogin {
     public void executar() {
         Scanner scanner = new Scanner(System.in);
+        final String senhaCadastrada = "1234";
 
         System.out.println("Informe a senha: ");
-        int senha = scanner.nextInt();
+        String senhaDigitada = scanner.nextLine().trim();
 
-        if (senha==1234) {
-            System.out.println("Acesso Permitido!");
-        }else{
-            System.out.println("Acesso Negado!");
+        if (senhaDigitada.equals(senhaCadastrada)) {
+            System.out.println("Acesso permitido");
+        } else {
+            System.out.println("Acesso negado");
         }
     }
 }

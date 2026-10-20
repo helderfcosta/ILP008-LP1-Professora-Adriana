@@ -3,25 +3,38 @@ import java.util.Scanner;
 public class CalculadoraViagem {
     public void executar() {
         Scanner scanner = new Scanner(System.in);
+        final double consumoKmPorLitro = 12.0;
 
-        System.out.println("Informe a distância percorrida na viagem (em Km):");
-        var dist = scanner.nextDouble();
+        double dist = lerDouble(scanner, "Informe a distância da viagem (em km): ");
+        double preco = lerDouble(scanner, "Informe o preço do combustível (R$ por litro): ");
 
-        System.out.println("Informe o preço do combustível:");
-        var price = scanner.nextDouble();
+        double litros = dist / consumoKmPorLitro;
+        double valor = litros * preco;
 
-        var litros = dist / 12;
-
-        var valor = litros * price;
-
+        // Viagem com mais de 500 km ganha 5% de desconto no custo calculado
         if (dist > 500) {
-            var desconto = valor * 0.05;
-            var total = valor - desconto;
-            System.out.printf("O valor da gasto na viagem foi de R$%.2f", total);
-        } else {
-            System.out.printf("O valor gasto na viagem foi de R$%.2f", valor);
+            double desconto = valor * 0.05;
+            valor = valor - desconto;
+            System.out.printf("Viagem acima de 500 km: desconto de 5%% (R$ %.2f) aplicado.%n", desconto);
         }
 
+        System.out.printf("O valor gasto na viagem será de R$ %.2f%n", valor);
+    }
 
+    // Lê um número decimal (0 ou mais); aceita vírgula ou ponto
+    private double lerDouble(Scanner scanner, String mensagem) {
+        while (true) {
+            System.out.println(mensagem);
+            String texto = scanner.nextLine().trim().replace(',', '.');
+            try {
+                double valor = Double.parseDouble(texto);
+                if (Double.isFinite(valor) && valor >= 0) {
+                    return valor;
+                }
+            } catch (NumberFormatException e) {
+                // cai na mensagem abaixo
+            }
+            System.out.println("Valor inválido. Digite um número maior ou igual a 0.");
+        }
     }
 }

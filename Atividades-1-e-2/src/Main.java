@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        var opcao = -1;
+        int opcao = -1;
 
         do {
             System.out.println("\nQual você deseja executar?");
@@ -16,39 +16,26 @@ public class Main {
             System.out.println("7-Aluguel de carro");
             System.out.println("0-Sair");
 
-            opcao = scanner.nextInt();
+            // Lê a linha inteira e converte; se não for número, avisa em vez de travar
+            String entrada = scanner.nextLine().trim();
+            try {
+                opcao = Integer.parseInt(entrada);
+            } catch (NumberFormatException e) {
+                opcao = -1;
+                System.out.println("Opção inválida! Digite um número de 0 a 7.");
+                continue;
+            }
 
             switch (opcao) {
-                case 1 -> {
-                    VerificacaoMultiplo exercicio1 = new VerificacaoMultiplo();
-                    exercicio1.executar();
-                }
-                case 2 -> {
-                    SistemaLogin exercicio2 = new SistemaLogin();
-                    exercicio2.executar();
-                }
-                case 3 -> {
-                    CompraComDesconto exercicio3 = new CompraComDesconto();
-                    exercicio3.executar();
-                }
-                case 4 -> {
-                    Temperatura exercicio4 = new Temperatura();
-                    exercicio4.executar();
-                }
-                case 5 -> {
-                    TrintaCincoCamelos exercicio5 = new TrintaCincoCamelos();
-                    exercicio5.executar();
-                }
-                case 6 -> {
-                    CalculadoraViagem exercicio6 = new CalculadoraViagem();
-                    exercicio6.executar();
-                }
-                case 7 -> {
-                    AluguelDeCarro exercicio7 = new AluguelDeCarro();
-                    exercicio7.executar();
-                }
+                case 1 -> new VerificacaoMultiplo().executar();
+                case 2 -> new SistemaLogin().executar();
+                case 3 -> new CompraComDesconto().executar();
+                case 4 -> new Temperatura().executar();
+                case 5 -> new TrintaCincoCamelos().executar();
+                case 6 -> new CalculadoraViagem().executar();
+                case 7 -> new AluguelDeCarro().executar();
                 case 0 -> System.out.println("Encerrando...");
-                default -> System.out.println("Opção inválida!");
+                default -> System.out.println("Opção inválida! Digite um número de 0 a 7.");
             }
         } while (opcao != 0);
 
