@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CabeleireiroController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Cabeleireiros" />
+      <GridPane hgap="10.0" vgap="8.0">
+         <children>
+            <Label text="Nome" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtNome" prefWidth="260.0" promptText="Ex.: Marcos" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Salão" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtSalao" prefWidth="260.0" promptText="Ex.: Studio Hair" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Preço base (R$)" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="txtPrecoBase" prefWidth="260.0" promptText="Ex.: 40" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar cabeleireiro" />
+      <Label text="Cadastrados (clique em um item para usar as ações abaixo):" />
+      <ListView fx:id="lvCabeleireiro" prefHeight="150.0" />
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Penteado:" />
+            <ComboBox fx:id="cbPenteado" prefWidth="300.0" promptText="Escolha um penteado cadastrado" />
+         </children>
+      </HBox>
+      <FlowPane hgap="14.0" vgap="8.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <TextField fx:id="txtCorte" prefWidth="100.0" promptText="Cortar (cm)" />
+                  <Button mnemonicParsing="false" onAction="#atender" text="Atender (cortar)" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#calcularPreco" text="Calcular preço" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#apresentar" text="Apresentar" />
+               </children>
+            </HBox>
+         </children>
+      </FlowPane>
+      <Label fx:id="lblMensagem" style="-fx-font-weight: bold;" wrapText="true" />
+   </children>
+</VBox>

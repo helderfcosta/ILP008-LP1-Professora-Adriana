@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.LojaController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Lojas" />
+      <GridPane hgap="10.0" vgap="8.0">
+         <children>
+            <Label text="Nome" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtNome" prefWidth="260.0" promptText="Ex.: Dorinho's" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Cidade" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCidade" prefWidth="260.0" promptText="Ex.: São José dos Campos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Estoque inicial" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="txtEstoque" prefWidth="260.0" promptText="Ex.: 200" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar loja" />
+      <Label text="Cadastrados (clique em um item para usar as ações abaixo):" />
+      <ListView fx:id="lvLoja" prefHeight="150.0" />
+      <FlowPane hgap="14.0" vgap="8.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <TextField fx:id="txtReceber" prefWidth="100.0" promptText="Quantidade" />
+                  <Button mnemonicParsing="false" onAction="#receberPecas" text="Receber peças" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <TextField fx:id="txtVender" prefWidth="100.0" promptText="Quantidade" />
+                  <Button mnemonicParsing="false" onAction="#venderPecas" text="Vender peças" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#exibirSituacao" text="Exibir situação" />
+               </children>
+            </HBox>
+         </children>
+      </FlowPane>
+      <Label fx:id="lblMensagem" style="-fx-font-weight: bold;" wrapText="true" />
+   </children>
+</VBox>

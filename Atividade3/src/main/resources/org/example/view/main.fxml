@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<!-- Janela principal: uma aba para cada tela (Model). Para adicionar uma tela nova,
+     basta incluir mais uma <Tab> com um <fx:include> apontando para o FXML dela. -->
+<TabPane tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <tabs>
+      <Tab text="Loja">
+         <content>
+            <fx:include source="loja.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Roupa">
+         <content>
+            <fx:include source="roupa.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Manequim">
+         <content>
+            <fx:include source="manequim.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Bicicleta">
+         <content>
+            <fx:include source="bicicleta.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Ciclista">
+         <content>
+            <fx:include source="ciclista.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Trilha">
+         <content>
+            <fx:include source="trilha.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Máscara">
+         <content>
+            <fx:include source="mascaraafricana.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Artesão">
+         <content>
+            <fx:include source="artesao.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Exposição">
+         <content>
+            <fx:include source="exposicao.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Penteado">
+         <content>
+            <fx:include source="penteado.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Rosto">
+         <content>
+            <fx:include source="rosto.fxml" />
+         </content>
+      </Tab>
+      <Tab text="Cabeleireiro">
+         <content>
+            <fx:include source="cabeleireiro.fxml" />
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

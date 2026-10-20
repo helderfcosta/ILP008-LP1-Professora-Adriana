@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.PenteadoController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Penteados" />
+      <GridPane hgap="10.0" vgap="8.0">
+         <children>
+            <Label text="Estilo" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtEstilo" prefWidth="260.0" promptText="Ex.: Liso curto" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Comprimento (cm)" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtComprimento" prefWidth="260.0" promptText="Ex.: 12" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Cor" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCor" prefWidth="260.0" promptText="Ex.: preto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar penteado" />
+      <Label text="Cadastrados (clique em um item para usar as ações abaixo):" />
+      <ListView fx:id="lvPenteado" prefHeight="150.0" />
+      <FlowPane hgap="14.0" vgap="8.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <TextField fx:id="txtCortar" prefWidth="70.0" promptText="cm" />
+                  <Button mnemonicParsing="false" onAction="#cortar" text="Cortar" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <TextField fx:id="txtCrescer" prefWidth="70.0" promptText="cm" />
+                  <Button mnemonicParsing="false" onAction="#crescer" text="Crescer" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <TextField fx:id="txtNovaCor" prefWidth="100.0" promptText="Nova cor" />
+                  <Button mnemonicParsing="false" onAction="#pintar" text="Pintar" />
+               </children>
+            </HBox>
+         </children>
+      </FlowPane>
+      <Label fx:id="lblMensagem" style="-fx-font-weight: bold;" wrapText="true" />
+   </children>
+</VBox>

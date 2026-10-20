@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.ManequimController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Manequins da vitrine" />
+      <GridPane hgap="10.0" vgap="8.0">
+         <children>
+            <Label text="Altura (cm)" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtAltura" prefWidth="260.0" promptText="Ex.: 180" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+         </children>
+      </GridPane>
+      <Button mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar manequim" />
+      <Label text="Cadastrados (clique em um item para usar as ações abaixo):" />
+      <ListView fx:id="lvManequim" prefHeight="150.0" />
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Roupa para vestir:" />
+            <ComboBox fx:id="cbRoupa" prefWidth="300.0" promptText="Escolha uma roupa cadastrada" />
+         </children>
+      </HBox>
+      <FlowPane hgap="14.0" vgap="8.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#vestir" text="Vestir" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#despir" text="Despir" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <TextField fx:id="txtGraus" prefWidth="90.0" promptText="Graus" />
+                  <Button mnemonicParsing="false" onAction="#girar" text="Girar" />
+               </children>
+            </HBox>
+         </children>
+      </FlowPane>
+      <Label fx:id="lblMensagem" style="-fx-font-weight: bold;" wrapText="true" />
+   </children>
+</VBox>

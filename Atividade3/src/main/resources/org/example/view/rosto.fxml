@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.RostoController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <children>
+      <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Rostos" />
+      <GridPane hgap="10.0" vgap="8.0">
+         <children>
+            <Label text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtFormato" prefWidth="260.0" promptText="Ex.: oval" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Tom de pele" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTomDePele" prefWidth="260.0" promptText="Ex.: claro" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Button mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar rosto" />
+      <Label text="Cadastrados (clique em um item para usar as ações abaixo):" />
+      <ListView fx:id="lvRosto" prefHeight="150.0" />
+      <FlowPane hgap="14.0" vgap="8.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#sorrir" text="Sorrir" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#piscar" text="Piscar" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+               <children>
+                  <TextField fx:id="txtExpressao" prefWidth="130.0" promptText="Nova expressão" />
+                  <Button mnemonicParsing="false" onAction="#mudarExpressao" text="Mudar expressão" />
+               </children>
+            </HBox>
+         </children>
+      </FlowPane>
+      <Label fx:id="lblMensagem" style="-fx-font-weight: bold;" wrapText="true" />
+   </children>
+</VBox>
